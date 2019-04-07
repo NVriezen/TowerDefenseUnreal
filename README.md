@@ -1,0 +1,11 @@
+# TowerDefenseUnreal
+
+## 24-03-2019
+Daar zijn we eindelijk weer. Ik ben er weer achter hoe verschikkelijk Unreal is met compile tijd. Ik snap nog steeds niet waarom compilen tot wel 10 minuten kan duren... Ze zouden toch moeten kunnen zien of een bestand verandert is, als dat zo is, compile dan alleen die bestanden?
+Maar goed, genoeg gezeurd daar over. Ik heb het mailtje er bij gepakt en heb voor mezelf bedacht hoe ik deze herkanding ga aanpakken. Ik wil dit namelijk in 1 dag afronden zodat ik toch (hopelijk) het vak haal en tijd over houd voor de rest.
+Er moet de mogelijkheid komen dat de speler makkelijk Towers kan plaatsen. De Enemy moet een pad gaan volgen die de designer gemakkelijk kan maken in de editor. Tot slot moeten de Towers en Enemies dan nog op elkaar reageren om een win-verliessituatie te produceren.
+
+Momenteel ben ik bezig met de Enemy dat een pad volgt. Wat ik de vorige keer allemaal heb gemaakt, daar kijk ik nu namelijk even niet meer naar. Deze features moeten er nu eerst in. Ik kan altijd met de kernmodule les nog om hulp vragen voor het probleem met rotation. Aangezien ik er in Unity ook nog mee kan stoeien, dus misschien zie ik iets over het hoofd.
+Ik probeer Unreal nu ook meer te zien zoals Unity, aangezien ik er vorige keer achter kwam dat ze toch best wat dingen gemeen hebben. Voor het pad maak ik daarom een PadManager die Enemies als reference willen. Daaruit kunnen ze een pad opvragen. Dat pad wordt nu simpelweg gemaakt door een lijst met lege Actors te pakken en daarvan de positie te pakken. Dus de designer kan een soort van Waypoints plaatsen waar de Enemies naar toe bewegen. De orde in de lijst is ook de volgorde waarin ze bewegen naar de waypoints. De enemies houden dan zelf de lijst van locaties bij, zodra ze er eentje hebben bereikt, dan wordt deze uit de lijst gegooid.
+
+Ik ben nu zover dat de Enemy het pad volgt. Ik heb nog even gekeken naar de Gun die de Enemy zou moeten volgen. Dat werkt opeens niet meer. Maar ik ben verder gegaan met het klikken op het scherm en dat er dan een tower wordt geplaatst. Echter ben ik nog druk met het uitzoeken hoe ik een raycast kan vuren. Ik snap ook niet helemaal waar de PlayerController precies voor is die weer inherit van Controller, maar die tegelijkertijd de camera heeft. Dat kun je allemaal niet zien in de editor lijkt het.
