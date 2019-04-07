@@ -22,6 +22,8 @@ void ABaseEnemy::BeginPlay()
 	Super::BeginPlay();
 	
 	PrimaryActorTick.bCanEverTick = true;
+
+	pathNodes = pathManager->GetPath();
 }
 
 // Called every frame
@@ -29,9 +31,22 @@ void ABaseEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (pathNodes.Num() == 0) {
+		return;
+	}
+
 	FVector NewLocation = GetActorLocation();
-	NewLocation.X -= (DeltaTime * moveSpeed);
-	SetActorLocation(NewLocation, false, NULL, ETeleportType::TeleportPhysics);
+
+	NewLocation = GetActorLocation() + (pathNodes[0] - GetActorLocation());
+
+	//SetActorLocation(NewLocation, false, NULL, ETeleportType::TeleportPhysics);
+	SetActorLocation(FMath::VInterpTo(GetActorLocation(), NewLocation, DeltaTime, moveSpeed));
+
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, NewLocation.ToString());
+
+	if (FVector::Dist(GetActorLocation(), NewLocation) < distanceMargin) {
+		pathNodes.RemoveAt(0);
+	}
 
 }
 

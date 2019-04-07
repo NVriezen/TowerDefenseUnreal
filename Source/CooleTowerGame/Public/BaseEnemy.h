@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "BasePathManager.h"
+#include <Array>
 #include "Components/CapsuleComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -24,6 +26,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float moveSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<FVector> pathNodes;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		ABasePathManager* pathManager;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float distanceMargin;
 
 protected:
 	// Called when the game starts or when spawned

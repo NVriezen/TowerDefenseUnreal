@@ -41,14 +41,17 @@ public:
 
 	void FollowTarget(AActor* OverlappedActor, AActor* OtherActor);
 
-	UFUNCTION(BlueprintNativeEvent)
-		void OnOverlap(AActor* OverlappedActor, AActor* OtherActor);
+	//UFUNCTION(BlueprintNativeEvent)
+	//	void OnOverlap(AActor* OverlappedActor, AActor* OtherActor);
+
+	//UFUNCTION(BlueprintNativeEvent)
+	//	void OnOverlapEnd(AActor* OverlappedActor, AActor* OtherActor);
 
 	UFUNCTION(BlueprintNativeEvent)
-		void OnOverlapEnd(AActor* OverlappedActor, AActor* OtherActor);
+		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION(BlueprintNativeEvent)
-		void YourOverlapFunction(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+		void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 /*
 	UFUNCTION(BlueprintNativeEvent)
 		void OnOverlapExit(AActor* OverlappedActor, AActor* OtherActor);*/
